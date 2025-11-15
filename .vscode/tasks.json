@@ -1,0 +1,79 @@
+{
+ "version": "2.0.0",
+ "tasks": [
+  {
+   "type": "cppbuild",
+   "label": "C/C++: clang++ build active file",
+   "command": "/usr/bin/clang++",
+   "args": [
+    "-std=c++17",
+    "-fdiagnostics-color=always",
+    "-Wall",
+    "-g",
+    "-I${workspaceFolder}/dependencies/include",
+    "-L${workspaceFolder}/dependencies/library",
+    "${file}",
+    "${workspaceFolder}/glad.c",
+    "${workspaceFolder}/dependencies/library/libglfw.3.4.dylib",
+    "-o",
+    "${workspaceFolder}/traffic_app",
+    
+    "-framework",
+    "OpenGL",
+    "-framework",
+    "Cocoa",
+    "-framework",
+    "IOKit",
+    "-framework",
+    "CoreVideo",
+    "-framework",
+    "CoreFoundation",
+    "-Wno-deprecated"
+   ],
+   "options": {
+    "cwd": "${fileDirname}"
+   },
+   "problemMatcher": ["$gcc"],
+   "group": {
+    "kind": "build",
+    "isDefault": true
+   },
+   "detail": "compiler: /usr/bin/clang++"
+  },
+  {
+   "type": "cppbuild",
+   "label": "Build Traffic System",
+   "command": "/usr/bin/clang++",
+   "args": [
+    "-std=c++17",
+    "-fdiagnostics-color=always",
+    "-Wall",
+    "-g",
+    "-I${workspaceFolder}/dependencies/include",
+    "-L${workspaceFolder}/dependencies/library",
+    "${workspaceFolder}/traffic_system.cpp",
+    "${workspaceFolder}/glad.c",
+    "${workspaceFolder}/dependencies/library/libglfw.3.4.dylib",
+    "-o",
+    "${workspaceFolder}/traffic_app",
+    "-framework",
+    "OpenGL",
+    "-framework",
+    "Cocoa",
+    "-framework",
+    "IOKit",
+    "-framework",
+    "CoreVideo",
+    "-framework",
+    "CoreFoundation",
+    "-Wno-deprecated"
+   ],
+   "options": {
+    "cwd": "${workspaceFolder}"
+   },
+   "problemMatcher": ["$gcc"],
+   "group": "build",
+   "detail": "Build the traffic light management system"
+  }
+ ]
+}
